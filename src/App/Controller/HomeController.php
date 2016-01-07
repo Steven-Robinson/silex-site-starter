@@ -21,7 +21,7 @@ class HomeController
         $this->app = $app;
     }
 
-    public function indexAction() : string
+    public function indexAction()
     {
         return $this->app['twig']->render('index.twig', []);
     }

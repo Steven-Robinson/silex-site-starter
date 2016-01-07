@@ -1,27 +1,16 @@
 <?php
 
-use App\Controller\HomeController;
+use App\ControllerProvider;
+use App\SiteServiceProvider;
+use Silex\Application;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
-$app = new Silex\Application();
+$app = new Application();
 
-// register services
+$app['app_path'] = __DIR__ . '/../';
+$app['debug'] = true;
 
-$app->register(new Silex\Provider\ServiceControllerServiceProvider());
-
-$app->register(new Silex\Provider\TwigServiceProvider(), [
-    'twig.path' => __DIR__ . '/../resources/views',
-]);
-
-// register container entries
-
-$app['home.controller'] = $app->share(function() use ($app) {
-    return new HomeController($app);
-});
-
-// register routes
-
-$app->get('/', "home.controller:indexAction");
-
-$app->run();
+$app->register(new SiteServiceProvider())
+    ->mount('/', new ControllerProvider())
+    ->run();
