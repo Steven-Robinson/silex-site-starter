@@ -2,15 +2,27 @@
 
 namespace App\Controller;
 
+use Silex\Application;
+
 class HomeController
 {
-    public function __construct()
+    /**
+     * @var Application
+     */
+    private $app;
+
+    /**
+     * HomeController constructor.
+     *
+     * @param Application $app
+     */
+    public function __construct(Application $app)
     {
-        
+        $this->app = $app;
     }
 
-    public function indexAction()
+    public function indexAction() : string
     {
-        return 'Hello World!';
+        return $this->app['twig']->render('index.twig', []);
     }
 }
