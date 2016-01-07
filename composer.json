@@ -1,0 +1,14 @@
+{
+  "name": "steroib/site-starter",
+  "description": "Basic site Silex starter codebase with php 7 ubuntu 14.04 vagrant box for dev.",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Steven Robinson"
+    }
+  ],
+  "require": {
+    "silex/silex": "~1.3"
+  }
+}
