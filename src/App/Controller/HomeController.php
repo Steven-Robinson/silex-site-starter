@@ -2,27 +2,28 @@
 
 namespace App\Controller;
 
-use Silex\Application;
-
 class HomeController
 {
     /**
-     * @var Application
+     * @var \Twig_Environment
      */
-    private $app;
+    private $twig;
 
     /**
      * HomeController constructor.
-     *
-     * @param Application $app
+     * @param \Twig_Environment $twig
      */
-    public function __construct(Application $app)
-    {
-        $this->app = $app;
+    public function __construct(
+        \Twig_Environment $twig
+    ) {
+        $this->twig = $twig;
     }
 
-    public function indexAction()
+    /**
+     * @return string
+     */
+    public function indexAction() : string
     {
-        return $this->app['twig']->render('index.twig', []);
+        return $this->twig->render('index.twig');
     }
 }
