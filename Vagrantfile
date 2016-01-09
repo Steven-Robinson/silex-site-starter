@@ -19,11 +19,15 @@ Vagrant.configure(2) do |config|
     add-apt-repository -y ppa:ondrej/php-7.0
     apt-get update
 
-    apt-get install -y php7.0 php7.0-fpm nginx git
+    apt-get install -y php7.0 php7.0-fpm nginx git nodejs npm
 
     mv /tmp/nginx-vhost.conf /etc/nginx/sites-enabled/default
 
     service nginx restart
+
+    npm install -g browserify
+
+    ln -s /usr/bin/nodejs /usr/bin/node
   SHELL
 
 end
