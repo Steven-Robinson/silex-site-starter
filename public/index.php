@@ -1,6 +1,5 @@
 <?php
 
-use App\ControllerProvider;
 use App\AppServiceProvider;
 use Silex\Application;
 
@@ -12,5 +11,5 @@ $app['app_path'] = __DIR__ . '/../';
 $app['app_env'] = $_SERVER['APP_ENV'];
 
 $app->register(new AppServiceProvider())
-    ->mount('/', new ControllerProvider())
+    ->mount('/', $app['controller.provider'])
     ->run();

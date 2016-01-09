@@ -9,6 +9,21 @@ use Silex\ControllerProviderInterface;
 class ControllerProvider implements ControllerProviderInterface
 {
     /**
+     * @var array
+     */
+    private $routes;
+
+    /**
+     * ControllerProvider constructor.
+     * @param array $routes
+     */
+    public function __construct(
+        array $routes = []
+    ) {
+        $this->routes = $routes;
+    }
+
+    /**
      * @param Application $app
      * @return mixed
      */
@@ -18,7 +33,9 @@ class ControllerProvider implements ControllerProviderInterface
 
         $controllers = $app['controllers_factory'];
 
-        $controllers->get('/', 'home.controller:indexAction');
+        foreach ($this->routes as $route => $controller) {
+            $controllers->get($route, $controller);
+        }
 
         return $controllers;
     }

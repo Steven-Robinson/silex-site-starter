@@ -27,6 +27,12 @@ class AppServiceProvider implements ServiceProviderInterface
         $app->register(new ServiceControllerServiceProvider());
 
         $app->register(new TwigServiceProvider(), $app['config']['twig']);
+
+        $app['controller.provider'] = $app->share(function () use ($app) {
+            return new ControllerProvider(
+                $app['config']['routes']
+            );
+        });
     }
 
     public function boot(Application $app)
