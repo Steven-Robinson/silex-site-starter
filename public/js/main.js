@@ -9834,4 +9834,7 @@ return jQuery;
 },{}],2:[function(require,module,exports){
 var $ = require('jquery');
 console.log($);
+console.log($);
+console.log('WTF!!!!');
+
 },{"jquery":1}]},{},[2]);
