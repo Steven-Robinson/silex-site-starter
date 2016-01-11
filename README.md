@@ -13,9 +13,17 @@ Git clone this project.
 
     cd <project directory>
 
-    composer install.
-
     vagrant up
+    
+    vagrant ssh
+    
+    cd /var/www/site-starter
+    
+    php composer.phar install
+    
+    npm install
+    
+    browserify resources/assets/main.js > public/js/main.js
 
 Once complete go to http://127.0.0.1:8080 in your browser...
 

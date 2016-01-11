@@ -25,9 +25,15 @@ Vagrant.configure(2) do |config|
 
     service nginx restart
 
-    npm install
-
     ln -s /usr/bin/nodejs /usr/bin/node
+
+    rm -fr node_modules vendor public/js/main.js
+
+    npm install - g browserify
+
+    php composer.phar install
+
+    browserify resources/assets/main.js > public/js/main.js
   SHELL
 
 end
