@@ -3,3 +3,4 @@ vendor
 .idea
 .vagrant
 public/js/main.js
+npm-debug.log

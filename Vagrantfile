@@ -25,15 +25,21 @@ Vagrant.configure(2) do |config|
 
     service nginx restart
 
-    ln -s /usr/bin/nodejs /usr/bin/node
+    # ln -s /usr/bin/nodejs /usr/bin/node
 
-    rm -fr node_modules vendor public/js/main.js
+    npm install -g browserify
 
-    npm install - g browserify
+    curl -s https://getcomposer.org/installer | php
 
-    php composer.phar install
+    mv composer.phar /usr/local/bin/composer
 
-    browserify resources/assets/main.js > public/js/main.js
+    cd /var/www/site-starter
+
+    composer install
+
+    npm install
+
+    browserify /var/www/site-starter/resources/assets/main.js > /var/www/site-starter/public/js/main.js
   SHELL
 
 end
