@@ -9835,6 +9835,5 @@ return jQuery;
 var $ = require('jquery');
 console.log($);
 console.log($);
-console.log('WTF!!!!');
 
 },{"jquery":1}]},{},[2]);
