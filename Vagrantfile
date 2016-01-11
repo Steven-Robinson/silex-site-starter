@@ -25,7 +25,7 @@ Vagrant.configure(2) do |config|
 
     service nginx restart
 
-    npm install -g browserify
+    npm install
 
     ln -s /usr/bin/nodejs /usr/bin/node
   SHELL
