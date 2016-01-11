@@ -1,3 +1,4 @@
 var $ = require('jquery');
-console.log($);
-console.log($);
+console.log('Bored now!!');
+console.log('Totally bored now!!');
+console.log('Totally fucking pissed off now!!');
