@@ -1,8 +1,0 @@
-{
-  "name": "silex-site-starter",
-  "version": "1.0.0",
-  "dependencies": {
-    "browserify": "^13.0.0",
-    "jquery": "~2.2.0"
-  }
-}

@@ -16,18 +16,14 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo bash
 
-    add-apt-repository -y ppa:ondrej/php-7.0
+    add-apt-repository -y ppa:ondrej/php
     apt-get update
 
-    apt-get install -y php7.0 php7.0-fpm nginx git nodejs npm
+    apt-get install -y php7.0 php7.0-fpm nginx git
 
     mv /tmp/nginx-vhost.conf /etc/nginx/sites-enabled/default
 
     service nginx restart
-
-    # ln -s /usr/bin/nodejs /usr/bin/node
-
-    npm install -g browserify
 
     curl -s https://getcomposer.org/installer | php
 
@@ -36,10 +32,6 @@ Vagrant.configure(2) do |config|
     cd /var/www/site-starter
 
     composer install
-
-    npm install
-
-    browserify /var/www/site-starter/resources/assets/main.js > /var/www/site-starter/public/js/main.js
   SHELL
 
 end
